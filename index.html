@@ -10,13 +10,13 @@
            ============================================================ */
         :root {
             /* === BRANDING & IDENTITÄT === */
-            --COMPANY_NAME: "CodeRhythm Labs";
+            --COMPANY_NAME: "flyloetrump laboratory";
             --COMPANY_LOGO: "🎧";
             --PROJECT_NAME: "Mobile Sound Designer";
-            --VERSION: "v3.3.0";
-            --CREATOR: "Max Mustermann";
-            --CREATOR_EMAIL: "max@coderhythm.com";
-            --CREATOR_WEB: "coderhythm.com";
+            --VERSION: "V1.4";
+            --CREATOR: "STEFAN loeseke";
+            --CREATOR_EMAIL: "";
+            --CREATOR_WEB: "";
             
             /* === FARBEN === */
             --COLOR_HARMONIC: #4effbc;
@@ -28,6 +28,12 @@
             --PADDING: 12px;
             --GAP: 12px;
             --BORDER-RADIUS: 20px;
+            
+            /* === PIANO GRÖSSEN === */
+            --PIANO_HEIGHT: 120px;
+            --KEY_WHITE_WIDTH: 32px;
+            --KEY_BLACK_WIDTH: 20px;
+            --KEY_BLACK_OFFSET: 10px;
         }
         /* ============================================================ */
 
@@ -60,28 +66,28 @@
             border-radius: var(--BORDER-RADIUS);
         }
 
-        /* ========== FESTER HEADER-BLOCK (mobil optimiert) ========== */
+        /* ========== HEADER ========== */
         .header-block {
             background: linear-gradient(135deg, rgba(0, 255, 200, 0.08), rgba(0, 255, 100, 0.02));
             border: 1px solid rgba(78, 255, 188, 0.3);
             border-radius: 16px;
-            padding: 12px 14px;
+            padding: 10px 14px;
             margin-bottom: var(--GAP);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
 
         .header-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .header-logo {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             line-height: 1;
             filter: drop-shadow(0 0 8px rgba(78, 255, 188, 0.3));
         }
@@ -92,14 +98,14 @@
         }
 
         .header-project {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #b3ffdd;
             letter-spacing: 0.3px;
         }
 
         .header-version {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: #88ffaa;
             background: rgba(0, 255, 200, 0.1);
             padding: 1px 8px;
@@ -117,7 +123,7 @@
         }
 
         .header-creator-name {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: #aaffdd;
             font-weight: 500;
         }
@@ -129,22 +135,13 @@
         .header-creator-contact {
             font-size: 0.5rem;
             color: #66bb99;
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .header-creator-contact a {
-            color: #66bb99;
-            text-decoration: none;
-            border-bottom: 1px dotted rgba(78, 255, 188, 0.2);
         }
 
         .header-divider {
             display: none;
         }
 
-        /* ========== MIDI PANEL (mobil) ========== */
+        /* ========== MIDI PANEL ========== */
         .midi-panel {
             background: var(--COLOR_PANEL);
             backdrop-filter: blur(12px);
@@ -156,13 +153,13 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .midi-status {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .midi-led {
@@ -172,6 +169,7 @@
             background: #ff4444;
             box-shadow: 0 0 6px #ff4444;
             transition: 0.1s;
+            flex-shrink: 0;
         }
         .midi-led.active {
             background: #44ff44;
@@ -186,42 +184,42 @@
 
         .midi-note-display {
             background: #030b10;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 20px;
             color: cyan;
             font-family: monospace;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: bold;
         }
 
         .modulation-panel {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             background: #030b10;
-            padding: 3px 10px;
+            padding: 3px 8px;
             border-radius: 20px;
             flex-wrap: wrap;
         }
 
         .mod-value {
             color: #ffaa66;
-            font-size: 9px;
+            font-size: 8px;
         }
 
         .global-btn {
             background: #1a3a2e;
             border: 1px solid #4effbc;
             color: #b3ffdd;
-            padding: 3px 10px;
+            padding: 3px 8px;
             border-radius: 16px;
             cursor: pointer;
-            font-size: 9px;
+            font-size: 8px;
             font-family: monospace;
             transition: 0.1s;
             white-space: nowrap;
         }
 
-        /* ========== TOP LAYOUT (mobil: 1 Spalte) ========== */
+        /* ========== TOP LAYOUT ========== */
         .top-layout {
             display: grid;
             grid-template-columns: 1fr;
@@ -278,43 +276,18 @@
         .spectrum-header h3 {
             color: #8effd0;
             margin: 0;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
 
         .global-controls {
             display: flex;
-            gap: 6px;
+            gap: 4px;
             flex-wrap: wrap;
         }
 
-        .spectrum-tabs {
-            display: flex;
-            gap: 4px;
-            background: #030b10;
-            padding: 3px;
-            border-radius: 16px;
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: none;
-            color: #669988;
-            padding: 3px 10px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 9px;
-            font-family: monospace;
-            transition: 0.1s;
-        }
-
-        .tab-btn.active {
-            background: #1a3a2e;
-            color: #b3ffdd;
-        }
-
-        /* ========== SLIDER CONTAINER (mobil optimiert) ========== */
+        /* ========== SLIDER ========== */
         .harmonic-sliders-container {
-            max-height: 200px;
+            max-height: 180px;
             overflow-y: auto;
             margin: 8px 0;
             padding: 6px;
@@ -327,11 +300,11 @@
         .harmonic-row {
             display: flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 4px;
-            padding: 4px 8px;
+            gap: 4px;
+            margin-bottom: 3px;
+            padding: 3px 6px;
             background: #0e1922;
-            border-radius: 20px;
+            border-radius: 16px;
             border-left: 2px solid #4effbc;
         }
 
@@ -340,8 +313,8 @@
         }
 
         .harmonic-label {
-            width: 50px;
-            font-size: 8px;
+            width: 40px;
+            font-size: 7px;
             font-weight: bold;
             color: #bbffdd;
             flex-shrink: 0;
@@ -352,9 +325,9 @@
         }
 
         .type-badge {
-            font-size: 6px;
-            padding: 1px 4px;
-            border-radius: 8px;
+            font-size: 5px;
+            padding: 1px 3px;
+            border-radius: 6px;
             background: rgba(78, 255, 188, 0.15);
             color: #88ffaa;
         }
@@ -366,16 +339,16 @@
 
         .harmonic-slider {
             flex: 1;
-            height: 6px;
+            height: 5px;
             -webkit-appearance: none;
             background: #2a4048;
             border-radius: 10px;
-            min-width: 40px;
+            min-width: 30px;
         }
         .harmonic-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 0 8px;
@@ -390,9 +363,9 @@
         }
 
         .harmonic-value {
-            width: 32px;
+            width: 28px;
             text-align: right;
-            font-size: 8px;
+            font-size: 7px;
             color: #aaffdd;
             flex-shrink: 0;
         }
@@ -405,33 +378,33 @@
             background: #2f4f4a;
             border: none;
             color: white;
-            border-radius: 12px;
-            font-size: 8px;
+            border-radius: 10px;
+            font-size: 7px;
             cursor: pointer;
-            padding: 2px 6px;
+            padding: 2px 5px;
             flex-shrink: 0;
         }
 
         .ratio-control {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: #0e1922;
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 3px 10px;
+            border-radius: 16px;
             border: 1px solid #ff7e5e40;
             margin: 4px 0;
             flex-wrap: wrap;
         }
 
         .ratio-control label {
-            font-size: 9px;
+            font-size: 8px;
             color: #ffaa88;
             font-weight: bold;
         }
 
         .ratio-control input {
-            width: 80px;
+            width: 60px;
             height: 4px;
             -webkit-appearance: none;
             background: #2a4048;
@@ -439,8 +412,8 @@
         }
         .ratio-control input::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: #ff7e5e;
             cursor: pointer;
@@ -451,45 +424,45 @@
             background: #03080f;
             border-radius: 12px;
             width: 100%;
-            height: 80px;
+            height: 60px;
             display: block;
-            margin-top: 8px;
+            margin-top: 6px;
             border: 1px solid #1effb060;
         }
 
-        /* ========== CONTROLS (mobil) ========== */
+        /* ========== CONTROLS ========== */
         .controls-area {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 6px;
+            gap: 4px;
             align-items: center;
             background: var(--COLOR_PANEL);
             backdrop-filter: blur(12px);
             border: 1px solid #2affaa30;
             border-radius: 16px;
-            padding: 8px 10px;
+            padding: 6px 8px;
             margin: var(--GAP) 0;
         }
 
         .control-group {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             background: #0b141cb3;
-            padding: 3px 8px;
-            border-radius: 30px;
+            padding: 2px 6px;
+            border-radius: 20px;
         }
 
         .circle {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             background: #0e1a24;
             border: 1px solid cyan;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 6px;
+            font-size: 5px;
             text-align: center;
             color: #b0ffe0;
             flex-shrink: 0;
@@ -497,7 +470,7 @@
 
         .slider-wrapper {
             flex: 1;
-            min-width: 30px;
+            min-width: 20px;
         }
         .slider-wrapper input[type="range"] {
             width: 100%;
@@ -508,8 +481,8 @@
         }
         .slider-wrapper input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: cyan;
             cursor: pointer;
@@ -518,11 +491,11 @@
 
         .display-value {
             font-family: monospace;
-            font-size: 8px;
+            font-size: 7px;
             color: #b6ffdb;
             background: #00000066;
-            padding: 1px 6px;
-            border-radius: 12px;
+            padding: 1px 4px;
+            border-radius: 10px;
             white-space: nowrap;
         }
 
@@ -530,15 +503,15 @@
             background: #005f5f;
             border: 1px solid #88ffcc;
             color: #b3ffdd;
-            padding: 4px 8px;
-            border-radius: 16px;
+            padding: 3px 6px;
+            border-radius: 14px;
             cursor: pointer;
-            font-size: 8px;
+            font-size: 7px;
             font-family: monospace;
             white-space: nowrap;
         }
 
-        /* ========== OSCILLOSKOPE (mobil) ========== */
+        /* ========== OSCILLOSKOPE ========== */
         .osc-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -548,109 +521,132 @@
 
         canvas.osc-canvas {
             width: 100%;
-            height: 60px;
+            height: 50px;
             background-color: #03080f;
             border-radius: 12px;
             border: 1px solid #33ffaa40;
             display: block;
         }
 
-        /* ========== PIANO TASTATUR (mobil optimiert - JEDE TASTE SICHTBAR) ========== */
+        /* ============================================================
+           🎹 PIANO TASTATUR – PERFEKTIONIERT!
+           ============================================================ */
         .piano-area {
             background: #07161f80;
             border-radius: 16px;
-            padding: 6px;
+            padding: 6px 4px;
             backdrop-filter: blur(4px);
             border: 1px solid #46ffc030;
+            overflow: hidden;
         }
 
         .piano-keys {
             display: flex;
             position: relative;
             background: #0b111f;
-            border-radius: 14px;
-            height: 100px;
+            border-radius: 12px;
+            height: var(--PIANO_HEIGHT);
             user-select: none;
             overflow-x: auto;
-            padding: 6px 4px;
+            padding: 4px 4px 0 4px;
             gap: 1px;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
         }
 
-        .key {
-            position: relative;
-            cursor: pointer;
-            transition: 0.05s linear;
-            border-radius: 4px;
-            flex-shrink: 0;
-            min-height: 100%;
-        }
-
+        /* === WEISSE TASTEN === */
         .key.white {
-            flex: 1;
-            min-width: 28px;
-            background: #eef4ff;
-            border-bottom: 3px solid #88aacc;
-            border-radius: 6px 6px 4px 4px;
+            flex: 0 0 var(--KEY_WHITE_WIDTH);
             height: 100%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(180deg, #f8faff 0%, #e8eef5 100%);
+            border-radius: 6px 6px 3px 3px;
+            border-bottom: 3px solid #8899aa;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 -2px 4px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.05s ease;
+            position: relative;
+            z-index: 1;
+            min-width: 24px;
         }
 
         .key.white:active,
         .key.white.active {
-            background: #bbf0ff;
+            background: linear-gradient(180deg, #d0e8ff 0%, #b0d4ff 100%);
             transform: translateY(2px);
             border-bottom-width: 1px;
+            box-shadow: 0 0 12px rgba(78, 255, 188, 0.2);
         }
 
         .key.white.midi-active {
-            background: #88ffaa;
+            background: linear-gradient(180deg, #66ffaa 0%, #44dd88 100%);
             transform: translateY(2px);
-            box-shadow: 0 0 12px #44ff88;
+            border-bottom-width: 1px;
+            box-shadow: 0 0 20px rgba(68, 255, 136, 0.5);
         }
 
+        /* === SCHWARZE TASTEN (kürzer als weiße) === */
         .key.black {
-            background: #1e272e;
-            width: 18px;
-            margin-left: -9px;
-            margin-right: -9px;
+            flex: 0 0 var(--KEY_BLACK_WIDTH);
+            height: 62%;
+            background: linear-gradient(180deg, #2a2a2a 0%, #111111 100%);
+            border-radius: 0 0 4px 4px;
+            border: 1px solid #000000;
+            border-top: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.6), inset 0 -2px 6px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: all 0.05s ease;
+            position: relative;
             z-index: 10;
-            height: 60%;
-            border-radius: 0 0 8px 8px;
-            border-top: 2px solid #5effbc;
-            box-shadow: 0 2px 4px black;
+            margin-left: calc(var(--KEY_BLACK_WIDTH) / -2);
+            margin-right: calc(var(--KEY_BLACK_WIDTH) / -2);
             min-width: 14px;
         }
 
         .key.black:active,
         .key.black.active {
-            background: #3f4b55;
+            background: linear-gradient(180deg, #4a4a4a 0%, #222222 100%);
             transform: translateY(2px);
+            box-shadow: 0 0 12px rgba(255, 126, 94, 0.2);
         }
 
         .key.black.midi-active {
-            background: #88ffaa;
+            background: linear-gradient(180deg, #44dd88 0%, #22bb66 100%);
             transform: translateY(2px);
-            box-shadow: 0 0 12px #44ff88;
+            box-shadow: 0 0 20px rgba(68, 255, 136, 0.4);
         }
 
+        /* === NOTEN-LABELS === */
         .note-label {
             position: absolute;
-            bottom: 3px;
+            bottom: 4px;
             left: 0;
             right: 0;
-            font-size: 6px;
-            font-weight: bold;
-            color: #2c5a6e;
-            font-family: monospace;
             text-align: center;
+            font-size: 6px;
+            font-weight: 700;
+            color: #667788;
+            font-family: monospace;
             pointer-events: none;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.5);
         }
 
         .key.black .note-label {
-            color: #abddf5;
-            bottom: 1px;
+            color: #88aacc;
+            bottom: 2px;
             font-size: 5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        /* Scrollbar ausblenden aber funktionsfähig */
+        .piano-keys::-webkit-scrollbar {
+            height: 3px;
+        }
+        .piano-keys::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .piano-keys::-webkit-scrollbar-thumb {
+            background: #2affaa;
+            border-radius: 10px;
         }
 
         /* ========== MODAL ========== */
@@ -708,7 +704,7 @@
             font-size: 12px;
         }
 
-        /* ========== SCROLLBAR ========== */
+        /* ========== SCROLLBARS ========== */
         .harmonic-sliders-container::-webkit-scrollbar {
             width: 4px;
         }
@@ -721,48 +717,70 @@
             border-radius: 10px;
         }
 
-        .piano-keys::-webkit-scrollbar {
-            height: 3px;
-        }
-        .piano-keys::-webkit-scrollbar-track {
-            background: #030b10;
-            border-radius: 10px;
-        }
-        .piano-keys::-webkit-scrollbar-thumb {
-            background: #2affaa;
-            border-radius: 10px;
-        }
-
-        /* ========== RESPONSIVE FINE-TUNING ========== */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 400px) {
             :root {
                 --PADDING: 8px;
                 --GAP: 8px;
+                --PIANO_HEIGHT: 100px;
+                --KEY_WHITE_WIDTH: 26px;
+                --KEY_BLACK_WIDTH: 16px;
+                --KEY_BLACK_OFFSET: 8px;
             }
             .header-project {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
             .controls-area {
                 grid-template-columns: 1fr 1fr;
-            }
-            .key.white {
-                min-width: 22px;
-            }
-            .key.black {
-                width: 14px;
-                margin-left: -7px;
-                margin-right: -7px;
-                min-width: 10px;
             }
             canvas.paint-canvas {
                 height: 90px;
             }
             .harmonic-sliders-container {
-                max-height: 150px;
+                max-height: 130px;
+            }
+            .key.white {
+                min-width: 20px;
+            }
+            .key.black {
+                min-width: 12px;
+                margin-left: calc(var(--KEY_BLACK_WIDTH) / -2);
+                margin-right: calc(var(--KEY_BLACK_WIDTH) / -2);
+            }
+            canvas.osc-canvas {
+                height: 40px;
+            }
+            #barsCanvas {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            :root {
+                --KEY_WHITE_WIDTH: 22px;
+                --KEY_BLACK_WIDTH: 14px;
+                --PIANO_HEIGHT: 85px;
+            }
+            .key.white {
+                min-width: 18px;
+            }
+            .key.black {
+                min-width: 10px;
+                margin-left: calc(var(--KEY_BLACK_WIDTH) / -2);
+                margin-right: calc(var(--KEY_BLACK_WIDTH) / -2);
+            }
+            .midi-note-display {
+                font-size: 8px;
+                padding: 2px 6px;
             }
         }
 
         @media (min-width: 600px) {
+            :root {
+                --PIANO_HEIGHT: 140px;
+                --KEY_WHITE_WIDTH: 40px;
+                --KEY_BLACK_WIDTH: 24px;
+            }
             .main-container {
                 max-width: 700px;
             }
@@ -776,17 +794,19 @@
                 height: 160px;
             }
             .key.white {
-                min-width: 40px;
+                min-width: 32px;
             }
             .key.black {
-                width: 26px;
-                margin-left: -13px;
-                margin-right: -13px;
                 min-width: 18px;
             }
         }
 
         @media (min-width: 900px) {
+            :root {
+                --PIANO_HEIGHT: 160px;
+                --KEY_WHITE_WIDTH: 48px;
+                --KEY_BLACK_WIDTH: 30px;
+            }
             .main-container {
                 max-width: 1200px;
             }
@@ -794,7 +814,10 @@
                 height: 200px;
             }
             .key.white {
-                min-width: 50px;
+                min-width: 40px;
+            }
+            .key.black {
+                min-width: 22px;
             }
         }
     </style>
@@ -808,7 +831,7 @@
             <div class="header-logo" id="headerLogo">🎧</div>
             <div class="header-title-group">
                 <div class="header-project" id="headerProject">Mobile Sound Designer</div>
-                <span class="header-version" id="headerVersion">v3.3.0</span>
+                <span class="header-version" id="headerVersion">v3.4.0</span>
             </div>
         </div>
         <div class="header-creator">
@@ -860,12 +883,12 @@
             <div class="ratio-control">
                 <label>🎯 INHARMONIC RATIO</label>
                 <input type="range" id="inharmonicRatio" min="0.01" max="2.0" step="0.001" value="1.0">
-                <span id="ratioDisplay" style="color:#ffaa88; font-size:9px;">1.000</span>
+                <span id="ratioDisplay" style="color:#ffaa88; font-size:8px;">1.000</span>
                 <button class="reset-harmonic" id="resetRatio" style="background:#4f2a2a;">⟳</button>
             </div>
 
             <div id="harmonicSlidersList" class="harmonic-sliders-container"></div>
-            <canvas id="barsCanvas" width="800" height="80"></canvas>
+            <canvas id="barsCanvas" width="800" height="60"></canvas>
         </div>
     </div>
 
@@ -895,7 +918,7 @@
         <canvas id="oscEnvCanvas" class="osc-canvas"></canvas>
     </div>
 
-    <!-- PIANO TASTATUR (mobil optimiert) -->
+    <!-- PIANO TASTATUR (perfektioniert) -->
     <div class="piano-area">
         <div class="piano-keys" id="pianoKeys"></div>
     </div>
@@ -919,13 +942,13 @@
         // 📌 KONFIGURATION
         // ============================================================
         const CONFIG = {
-            COMPANY_NAME: "CodeRhythm Labs",
+            COMPANY_NAME: "flyloestrump laboratory",
             COMPANY_LOGO: "🎧",
             PROJECT_NAME: "Mobile Sound Designer",
-            VERSION: "v3.3.0",
-            CREATOR: "Max Mustermann",
-            CREATOR_EMAIL: "max@coderhythm.com",
-            CREATOR_WEB: "coderhythm.com"
+            VERSION: "v1.4",
+            CREATOR: "STEFAN loeseke",
+            CREATOR_EMAIL: "",
+            CREATOR_WEB: ""
         };
 
         document.getElementById('headerLogo').textContent = CONFIG.COMPANY_LOGO;
@@ -956,8 +979,6 @@
         const valPitchBend = document.getElementById('valPitchBend');
         const sliderAmp = document.getElementById('sliderAmp');
         const valAmp = document.getElementById('valAmp');
-        const vibratoDepthSlider = document.getElementById('vibratoDepth');
-        const vibratoVal = document.getElementById('vibratoVal');
         const displayPitch = document.getElementById('displayPitch');
         const midiLed = document.getElementById('midiLed');
         const midiDeviceName = document.getElementById('midiDeviceName');
@@ -1159,20 +1180,20 @@
             for(let i=1;i<=totalBars;i++){
                 let norm = harmonicAmps[i] / maxAmp;
                 norm = Math.min(1, Math.pow(norm, 0.7));
-                const barHeight = norm * (h-20);
+                const barHeight = norm * (h-18);
                 const x = (i-1) * barWidth;
-                const y = h - barHeight - 8;
+                const y = h - barHeight - 6;
                 const isHarmonic = i <= NUM_HARMONIC;
                 barsCtx.fillStyle = isHarmonic 
                     ? `hsl(${160 + i*2}, 80%, 60%)` 
                     : `hsl(${20 + (i-NUM_HARMONIC)*3}, 80%, 60%)`;
                 barsCtx.fillRect(x+1, y, barWidth-2, barHeight);
                 barsCtx.fillStyle = isHarmonic ? '#88ffaa' : '#ffaa88';
-                barsCtx.font = "6px monospace";
+                barsCtx.font = "5px monospace";
                 if(i <= 12){
-                    barsCtx.fillText(`${i}`, x+2, h-3);
+                    barsCtx.fillText(`${i}`, x+2, h-2);
                 } else {
-                    barsCtx.fillText(`U${i-12}`, x+1, h-3);
+                    barsCtx.fillText(`U${i-12}`, x+1, h-2);
                 }
             }
         }
@@ -1497,18 +1518,26 @@
             container.innerHTML = '';
             const startNote = 48, endNote = 84;
             const whiteNotes = [0,2,4,5,7,9,11];
+            const noteLabels = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+            let whiteIndex = 0;
+            
             for(let note = startNote; note <= endNote; note++){
                 const noteMod = note % 12;
                 const isWhite = whiteNotes.includes(noteMod);
                 const key = document.createElement('div');
                 key.className = `key ${isWhite ? 'white' : 'black'}`;
                 key.dataset.midiNote = note;
-                if(isWhite && (noteMod === 0 || noteMod === 7)) {
+                
+                // Beschriftung nur auf weißen Tasten mit C, F, G, A, B
+                if(isWhite && (noteMod === 0 || noteMod === 5 || noteMod === 7 || noteMod === 9 || noteMod === 11)) {
                     const label = document.createElement('span');
                     label.className = 'note-label';
-                    label.textContent = midiNoteName(note);
+                    const octave = Math.floor(note / 12) - 1;
+                    const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+                    label.textContent = `${noteNames[noteMod]}${octave}`;
                     key.appendChild(label);
                 }
+                
                 key.addEventListener('pointerdown', (e) => {
                     e.preventDefault();
                     key.classList.add('active');
@@ -1561,7 +1590,7 @@
             oscSignalCtx.fillRect(0,0,w,h);
             oscSignalCtx.beginPath();
             oscSignalCtx.strokeStyle = '#4effbc';
-            oscSignalCtx.lineWidth = 2;
+            oscSignalCtx.lineWidth = 1.5;
             for(let i=0;i<w;i++){
                 const idx = Math.floor((i/w)*128)%128;
                 let val = smoothedSignal[idx] || 0;
@@ -1575,6 +1604,7 @@
             oscEnvCtx.fillRect(0,0,w2,h2);
             oscEnvCtx.beginPath();
             oscEnvCtx.strokeStyle = '#ffaa66';
+            oscEnvCtx.lineWidth = 1.5;
             for(let i=0;i<w2;i++){
                 const idx = Math.floor((i/w2)*128);
                 let envVal = smoothedEnvelope[idx];
@@ -1590,10 +1620,10 @@
             const w = drawCanvas.parentElement.clientWidth - 16;
             drawCanvas.width = w; drawCanvas.height = Math.min(120, w * 0.4);
             envCanvas.width = w; envCanvas.height = Math.min(120, w * 0.4);
-            oscSignalCanvas.width = w; oscSignalCanvas.height = Math.min(60, w * 0.2);
-            oscEnvCanvas.width = w; oscEnvCanvas.height = Math.min(60, w * 0.2);
+            oscSignalCanvas.width = w; oscSignalCanvas.height = Math.min(50, w * 0.18);
+            oscEnvCanvas.width = w; oscEnvCanvas.height = Math.min(50, w * 0.18);
             barsCanvas.width = barsCanvas.parentElement.clientWidth - 24;
-            barsCanvas.height = Math.min(80, barsCanvas.parentElement.clientWidth * 0.15);
+            barsCanvas.height = Math.min(60, barsCanvas.parentElement.clientWidth * 0.12);
             renderBuffer(drawCanvas, drawCtx, sampledWaves, '#4effbc', "", false);
             renderBuffer(envCanvas, envCtx, sampledEnvelope, '#ffaa66', "", true);
             updateOscilloscopes();
@@ -1667,10 +1697,10 @@
             for(let i=0;i<str.length;i++) view.setUint8(offset + i, str.charCodeAt(i));
         }
         
-        // ========== JSON EXPORT/IMPORT ==========
+        // ========== JSON ==========
         function exportJSON(filename){
             const data = {
-                version: "3.3.0",
+                version: "3.4.0",
                 meta: {
                     version: CONFIG.VERSION,
                     creator: CONFIG.CREATOR,
